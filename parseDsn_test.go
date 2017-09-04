@@ -21,12 +21,8 @@ func TestParseDsn(t *testing.T) {
 		t.Errorf("Expected host as localhost instead got %s", conn.hostName)
 	}
 
-	if len(conn.port) == 0 {
+	if conn.port == 0 {
 		t.Errorf("Expected port but got empty")
-	}
-
-	if conn.port != "10000" {
-		t.Errorf("Expected port as 10000 instead got %s", conn.port)
 	}
 
 	if len(conn.dbName) == 0 {
