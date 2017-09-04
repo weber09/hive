@@ -1,11 +1,14 @@
 package hive
 
-import "strings"
+import (
+	"strings"
+	"strconv"
+)
 
 type Config struct {
 hiveType string
 hostName string
-port string
+port int
 dbName string
 user string
 password string
@@ -23,7 +26,7 @@ func ParseDsn (dsn string) (*Config, error) {
 	config := new(Config)
 
 	config.hostName = hostPort[0]
-	config.port = hostPort[1]
+	config.port, _ = strconv.Atoi(hostPort[1])
 
 	config.dbName = dbName
 
