@@ -50,6 +50,22 @@ func (*hiveConn) Begin() (driver.Tx, error){
 	return nil, nil
 }
 
+func (*hiveStatement) Close() error {
+	return nil
+}
+
+func (*hiveStatement) NumImput() int {
+	return 0
+}
+
+func (*hiveStatement) Exec(args []driver.Value) (driver.Result, error){
+	return nil, nil
+}
+
+func (*hiveStatement) Query(args []driver.Value) (driver.Rows, error){
+	return nil, nil
+}
+
 func OpenHiveconnection(dsn string) (driver.Conn, error) {
 	config, err := ParseDsn(dsn)
 	if err != nil {
